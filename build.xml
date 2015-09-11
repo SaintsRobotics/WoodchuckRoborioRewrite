@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="FRC Deployment" default="deploy">
+
+    <!-- Overridable properties -->
+
+    <!-- By default the system version of WPI is used -->
+    <!-- <property name="version" value=""/> -->
+
+    <!-- By default the target is set to 10.TE.AM.2 -->
+    <!-- <property name="target" value=""/> -->
+
+    <!--By default the system team number is used-->
+    <property name="team-number" value="1899"/>
+
+    <!-- Currently not used for anything really. Might be used in the future? -->
+    <property name="version" value="current"/>
+
+    <property file="${user.home}/wpilib/java/${version}/ant/build.properties"/>
+    <property file="build.properties"/>
+
+    <import file="${wpilib.ant.dir}/build.xml"/>
+</project>
