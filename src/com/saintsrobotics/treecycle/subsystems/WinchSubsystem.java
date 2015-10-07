@@ -35,16 +35,20 @@ public class WinchSubsystem extends Subsystem {
     /**
      * Moves the winch at the specified speed, unless the hook
      * is at the top or bottom, calculated by the limit switches.
+     *
+     * Move the winch to move the hook up by this amount.
      * 
      * @param speed The speed to move the winch.
      */
     public void lift(double speed) {
-        speed = -speed;
-        if (speed>0 && !topSwitch.get())
+        speed = -speed; // wires on the robot are inverted
+        if (speed>0 && !topSwitch.get()) {
             motor.set(0);
-        else if (speed<0 && !bottomSwitch.get())
+        } else if (speed<0 && !bottomSwitch.get()) {
             motor.set(0);
-        else motor.set(speed);
+        } else {
+            motor.set(speed);
+        }
     }
     
     /**
