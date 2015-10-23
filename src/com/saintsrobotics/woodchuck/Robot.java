@@ -24,21 +24,14 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 
     public static DriveSubsystem drive;
-    public static WinchSubsystem winch;
-    public static GyroSubsystem gyro;
-    public static OI oi;
     
     private SendableChooser autonCommandSendable;
     private Command autonCommand;
 
     public void robotInit() {
         drive = new DriveSubsystem();
-        winch = new WinchSubsystem();
-        gyro = new GyroSubsystem();
-        oi = new OI();
         
-        gyro.init();
-        
+
         autonCommandSendable = new SendableChooser();
         autonCommandSendable.addDefault("Forward, no platform", new PullTwoLandfillCommand());
         SmartDashboard.putData("Auton mode", autonCommandSendable);
@@ -58,7 +51,6 @@ public class Robot extends IterativeRobot {
     }
     
     public void disabledInit() {
-        Robot.winch.reset();
     }
     
     public void autonomousPeriodic() {
