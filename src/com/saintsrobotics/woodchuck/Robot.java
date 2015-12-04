@@ -24,25 +24,19 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 
     public static DriveSubsystem drive;
+    public static ShooterSubsystem firing;
+    public static FlywheelSubsystem flywheel;
     
     private SendableChooser autonCommandSendable;
     private Command autonCommand;
 
     public void robotInit() {
         drive = new DriveSubsystem();
-        
-
-        autonCommandSendable = new SendableChooser();
-        autonCommandSendable.addDefault("Forward, no platform", new PullTwoLandfillCommand());
-        SmartDashboard.putData("Auton mode", autonCommandSendable);
-        
-        //new CameraCommand().start();
-        CameraServer.getInstance().startAutomaticCapture();
+        firing = new ShooterSubsystem();
+        flywheel = new FlywheelSubsystem();
     }
     
     public void autonomousInit() {
-        autonCommand = new PullTwoLandfillCommand();
-        autonCommand.start();
     }
     
     public void teleopInit() {

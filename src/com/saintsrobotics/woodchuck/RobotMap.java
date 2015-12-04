@@ -1,5 +1,6 @@
 package com.saintsrobotics.woodchuck;
 
+import edu.wpi.first.wpilibj.Relay;
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -14,4 +15,13 @@ public class RobotMap {
     private static final boolean MOTOR_LEFT_INVERTED = true;
     private static final boolean MOTOR_RIGHT_INVERTED = false;
 
+    private static final int FLYWHEEL = 10;
+    private static final boolean FLYWHEEL_INVERTED = false;
+    
+    private final int FEEDER_RELAY = 1;
+    private final Relay.Direction FEEDER_DIRECTION = Relay.Direction.kForward;
+    
+    private final int FIRING_ARM_SWITCH_SIDECAR_SLOT = 1; //Appears to be deprecated. 
+    private final int FIRING_ARM_SWITCH_CHANNEL = 1;
+    
 }

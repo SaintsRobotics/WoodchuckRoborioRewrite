@@ -8,20 +8,22 @@ import com.saintsrobotics.woodchuck.subsystems.DriveSubsystem;
  * This class overrides the default abstract methods
  * from Command. For readability and code simplicity.
  */
-public class TankDriveCommand extends CommandBase {
+public class ArcadeDriveCommand extends CommandBase {
 	
-	public TankDriveCommand(){
+	public ArcadeDriveCommand(){
 		require(drive);
 	}
 	                              
     protected void execute() {
-        drive.drive(
-        	OI.getAxisValue(
+        double y = OI.getAxisValue(
         		OI.stick,
-        		OI.Axis.LY),
-        	OI.getAxisValue(
+        		OI.Axis.LY);
+        double x = OI.getAxisValue(
         		OI.stick,
-        		OI.Axis.RY)
-        	);
+        		OI.Axis.RX);
+    	drive.drive(
+    		y+x,
+    		y-x
+        );
     }
 }

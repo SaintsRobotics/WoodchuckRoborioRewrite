@@ -62,6 +62,9 @@ public class Motor {
         val = ramp.rampValues(val);
         motor.set(val);
     }
+    public double get(){
+    	return motor.get();
+    }
     
     /**
      * Stops the motor, without getting interrupted by ramping.

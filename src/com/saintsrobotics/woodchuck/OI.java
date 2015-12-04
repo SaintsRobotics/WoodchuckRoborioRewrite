@@ -4,10 +4,13 @@ import edu.wpi.first.wpilibj.Joystick;
 
 /** Operator Interface. Gets input from joysticks. */
 public class OI {
-    
-    
+	
+	static final double deadZone = 0.13;
+	
     // Xbox Controller
-    Joystick driveStick = new Joystick(0);
+    Joystick stick = new Joystick(0);
+    Button a = new JoystickButton(stick, Button.A.ordinal());
+    a.whenPressed(new FiringCommand());
     
     public enum Axis {
         // XBOX
@@ -26,10 +29,10 @@ public class OI {
      * @param button The button to get the state of.
      * @return true if the button is down, false if it's up.
      */
-    public boolean getButton(Button button) {
-        Joystick joystick = getStick(stick);
-        return joystick.getButton(button.ordinal());
+    public boolean getButton(Joystick stick, Button button) {
+        return stick.getButton(button.ordinal());
     }
+    
     
     /**
      * Gets the current value of an axis. Small values
@@ -39,8 +42,8 @@ public class OI {
      * @param axis The axis to get the state of.
      * @return The value of the axis, -1.0 to 1.0.
      */
-    public double getAxisValue(Stick stick, Axis axis) {
-        double val = getRawAxis(getStick(stick), axis);
+    public double getAxisValue(Joystick stick, Axis axis) {
+        double val = stick.getRawAxis(axis);
         return Math.abs(val) < 0.13 ? 0 : val;
     }
     

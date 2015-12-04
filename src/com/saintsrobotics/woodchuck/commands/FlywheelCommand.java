@@ -8,20 +8,16 @@ import com.saintsrobotics.woodchuck.subsystems.DriveSubsystem;
  * This class overrides the default abstract methods
  * from Command. For readability and code simplicity.
  */
-public class TankDriveCommand extends CommandBase {
+public class FlywheelCommand extends CommandBase {
 	
-	public TankDriveCommand(){
-		require(drive);
+	public FlywheelCommand(){
+		require(flywheel);
 	}
-	                              
+	
     protected void execute() {
-        drive.drive(
-        	OI.getAxisValue(
-        		OI.stick,
-        		OI.Axis.LY),
-        	OI.getAxisValue(
-        		OI.stick,
-        		OI.Axis.RY)
-        	);
+    	flywheel.changeFlywheel(OI.getAxisValue(
+    								OI.stick,
+    								OI.Axis.TRIGGERS)
+    	);
     }
 }
