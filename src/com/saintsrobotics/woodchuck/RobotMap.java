@@ -15,7 +15,8 @@ public class RobotMap {
     private static final boolean MOTOR_LEFT_INVERTED = true;
     private static final boolean MOTOR_RIGHT_INVERTED = false;
 
-    private static final int FLYWHEEL = 10;
+    private static final int FLYWHEEL_1 = 5;
+    private static final int FLYWHEEL_2 = 6;
     private static final boolean FLYWHEEL_INVERTED = false;
     
     private final int FEEDER_RELAY = 1;
